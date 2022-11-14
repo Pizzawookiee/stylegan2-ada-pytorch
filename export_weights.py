@@ -60,7 +60,7 @@ def convert(network_pkl, output_file):
 
     for i in range(int(n_layers)):
         if i > 0:
-            for conv_level in range(4):
+            for conv_level in range(2):
                 convert_conv(state_ros, state_nv, f"convs.{2*i-2+conv_level}", f"synthesis.b{4*(2**i)}.conv{conv_level}")
                 state_ros[f"noises.noise_{2*i-1+conv_level}"] = state_nv[f"synthesis.b{4*(2**i)}.conv{conv_level}.noise_const"].unsqueeze(0).unsqueeze(0)
 
